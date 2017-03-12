@@ -1,0 +1,10 @@
+#!/bin/bash
+while true; do
+	sleep 30
+	NUM1=$(grep -F "joined the game" /home/root/Minecraft-111/logs/latest.log | wc -l)
+	NUM2=$(grep -F "left the game" /home/root/Minecraft-111/logs/latest.log | wc -l)
+	count=$((NUM1-NUM2))
+	/home/root/quickfile/HPS_LED_HEX $count
+        echo $count
+
+done
